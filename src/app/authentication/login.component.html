@@ -1,0 +1,65 @@
+<section class="hero is-fullheight is-dark is-bold">
+  <form class="hero-body"  novalidate f="" ngSubmit="login(f)">
+    <div class="container">
+      <div class="columns is-vcentered">
+        <div class="column is-4 is-offset-4">
+          <h1 class="title">
+            Login
+          </h1>
+          <div class="box">
+            <label class="label">Email</label>
+            <p class="control">
+              <input
+                class="input"
+                type="text"
+                placeholder="jsmith@example.org"
+                ngModel="email"
+                required
+                email
+              />
+            </p>
+            <p class="help is-danger"
+               *ngIf="f.controls.email.errors.required && f.controls.email.touched">
+              Email is required
+            </p>
+            <p class="help is-danger"
+               *ngIf="f.controls.email.errors.email && f.controls.email.touched">
+              A valid email should be provided
+            </p>
+            <label class="label">Password</label>
+            <p class="control">
+              <input
+                class="input"
+                type="password"
+                name="password"
+                placeholder="●●●●●●●"
+                ngModel
+                (ngModelChange)=""
+                minlength="6"
+                maxlength="15"
+                required
+              />
+            </p>
+            <p class="help is-danger"
+               *ngIf="f.controls.password.errors.required && f.controls.password.touched">
+              Password is required
+            </p>
+            <p class="help is-danger"
+               *ngIf="(f.controls.password.errors.minlength || f.controls.password?.errors?.maxlength )
+                 && f.controls.password.touched">
+              Password length have to be between 6 and 15 characters
+            </p>
+            <hr/>
+            <p class="control">
+              <button
+                class="button is-primary"
+                disabled="f.invalid">
+                Login
+              </button>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</section>

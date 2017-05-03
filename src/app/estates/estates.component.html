@@ -1,0 +1,10 @@
+<hb-nav-bar></hb-nav-bar>
+<section class="section">
+  <div class="container content">
+    <div class="columns" ngFor="const chunk in filteredEstates">
+      <div class="column is-4" ngFor="let estate in chunk">
+        <hb-estate-card [estate]="estate"></hb-estate-card>
+      </div>
+    </div>
+  </div>
+</section>

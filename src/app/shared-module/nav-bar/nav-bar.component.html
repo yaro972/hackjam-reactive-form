@@ -1,0 +1,33 @@
+<nav class="nav has-shadow" id="top">
+  <div class="container">
+    <div class="nav-left">
+      <a class="nav-item" href="#">
+        <img
+          [src]="logo"
+          alt="Description">
+      </a>
+    </div>
+    <!-- This "nav-toggle" hamburger menu is only visible on mobile -->
+    <!-- You need toggle the "is-active" class on "nav-menu" -->
+    <span class="nav-toggle" (click)="showNavMenuOnMobile()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </span>
+    <div class="nav-right nav-menu" [class.is-active]="toggleNavMenu">
+      <a class="nav-item is-tab "
+         routerLink='/'
+         routerLinkActive="is-active">
+        Home
+      </a>
+      <span class="nav-item">
+          <a class="button">
+            Log in
+          </a>
+          <a class="button is-info">
+            Sign up
+          </a>
+        </span>
+    </div>
+  </div>
+</nav>

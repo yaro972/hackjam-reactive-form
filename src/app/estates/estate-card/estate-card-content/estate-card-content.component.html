@@ -1,0 +1,24 @@
+<div class="card-content">
+  <div class="media">
+    <div class="media-content">
+      <p class="title is-4">{title}</p>
+      <p class="subtitle is-6 is-link"
+         click="showHostName(userName)">
+        @{{userName}}
+      </p>
+    </div>
+    <div class="media-right">
+      <figure class="image is-48x48">
+        <img [src]="userPicture" alt="Image">
+      </figure>
+    </div>
+  </div>
+  <div class="content">
+    <small>
+      {{roomType  replaceAllUnderscoreBySpace  capitalizeFirstLetter}}
+      -
+      {{location.city | capitalizeFirstLetter}},
+      {{location.state  capitalizeFirstLetter}}
+    </small>
+  </div>
+</div>

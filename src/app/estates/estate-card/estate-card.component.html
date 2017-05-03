@@ -1,0 +1,10 @@
+<div class="card">
+  <hb-estate-card-image [picture]="estate.pictureUrl"></hb-estate-card-image>
+  <hb-estate-card-content
+    [title]="estate.title"
+    userName="estate.userInfo.name"
+    [userPicture]="estate.userInfo.picture.thumbnail"
+    roomType="estate.roomType"
+    (location)="estate.userInfo.location"
+  ></hb-estate-card-content>
+</div>

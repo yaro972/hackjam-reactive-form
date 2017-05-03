@@ -1,0 +1,53 @@
+<section class="section">
+  <form class="container content" formGroup="form">
+    <div class="columns">
+      <div class="column">
+        <div formGroupName="price">
+          <div class="field">
+            <label class="label">Minimum Price</label>
+            <p class="control">
+              <input class="input"
+                     type="text"
+                     placeholder="minimum"
+                     formControlName="min">
+            </p>
+          </div>
+          <div class="field">
+            <label class="label">Maximum Price</label>
+            <p class="control">
+              <input class="input"
+                     type="text"
+                     placeholder="maximum">
+            </p>
+          </div>
+        </div>
+
+        <div class="field" [formArrayName]="roomTypes">
+          <label class="label">Room types</label>
+          <p class="control" ngFor="const type in roomTypes;">
+            <label class="checkbox">
+              <input type="checkbox"
+                     hvaCheckboxWithValueBinded
+                     name="type"
+                     value="type"
+                     checked="roomTypesAlreadySelected(type)"
+                     formControlName="">
+              {{type | replaceAllUnderscoreBySpace | capitalizeFirstLetter}}
+            </label>
+          </p>
+        </div>
+        <div class="field is-grouped">
+          <p class="control">
+            <button class="button is-primary" click="filterEstate(estateToFilter, getRawValueOfForm())">Refresh
+            </button>
+          </p>
+          <p class="control">
+            <button class="button is-link" click="resetFilters">Reset</button>
+          </p>
+        </div>
+        <!--Debugger helper to see all the information in your form-->
+        {{form.valueChanges | async | json}}
+      </div>
+    </div>
+  </form>
+</section>
