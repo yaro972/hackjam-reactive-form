@@ -26,7 +26,7 @@ export class AuthenticationService {
       })
       .catch((response: Response) => {
         return Observable.throw(response);
-      })
+      });
   }
 
   isAuthenticated() {

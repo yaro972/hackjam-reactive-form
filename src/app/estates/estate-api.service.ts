@@ -4,7 +4,7 @@ import {API_URL, Estate} from '../types';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/toPromise';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 
 @Injectable()
 export class EstateApiService {
@@ -19,6 +19,6 @@ export class EstateApiService {
       .map((response: Response) => response.json())
       .catch((response: Response) => {
         return Observable.throw(response);
-      })
+      });
   }
 }
