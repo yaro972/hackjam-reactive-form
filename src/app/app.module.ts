@@ -13,7 +13,7 @@ import {HttpModule} from '@angular/http';
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +22,8 @@ import {HttpModule} from '@angular/http';
     EstatesModule,
     AuthenticationModule,
     AppRoutingModule,
+    SharedModule,
+    FormsModule
   ],
   providers: [
     {

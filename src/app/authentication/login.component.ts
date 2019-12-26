@@ -4,8 +4,10 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {Observable} from 'rxjs/Observable';
 import {Router} from '@angular/router';
-import {Subscription} from 'rxjs';
+import {Subscription} from 'rxjs/Subscription';
 import {unsubscribeAll} from '../utils';
+import {NgForm} from '@angular/forms';
+import {LoginCredentials} from './types';
 
 @Component({
   selector: 'hb-login',
@@ -13,11 +15,11 @@ import {unsubscribeAll} from '../utils';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit, OnDestroy {
-
-  email: string;
-  password: string;
+  public email: string;
+  public password: string;
 
   subscriptions: Subscription[] = [];
+  controls: LoginCredentials;
 
   constructor(private authService: AuthenticationService,
               private router: Router) {
@@ -26,20 +28,22 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnInit() {
   }
 
-  login() {
+  login(f: NgForm) {
     const credentials = {
       email: this.email,
       password: this.password
     };
 
-     this.authService.login(credentials)
+    this.authService.login(credentials)
       .map((token: string) => {
         this.redirectToHome();
       })
       .catch((error) => {
         console.log('error login', error);
         return Observable.empty();
-      });
+      }).subscribe(
+
+    );
   }
 
   redirectToHome() {
@@ -48,5 +52,10 @@ export class LoginComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     unsubscribeAll(this.subscriptions);
+  }
+
+  onChange(f: NgForm) {
+    this.email = f.value['email'];
+    this.password = f.value['password'];
   }
 }

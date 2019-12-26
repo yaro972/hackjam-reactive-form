@@ -1,11 +1,11 @@
 <div class="card-image">
   <figure class="image is-4by3">
     <!-- estate.pictureUrl could be null so we have to display the placeholder-->
-    <img ngIf="!picture"
+    <img *ngIf="!picture"
          src="http://bulma.io/images/placeholders/1280x960.png"
          alt="Image"/>
-    <img ngIf="picture"
-         src="picture"
+    <img *ngIf="picture"
+         [src]="picture"
          alt="Image"/>
   </figure>
 </div>

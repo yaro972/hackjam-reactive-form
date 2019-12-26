@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output, SimpleChanges} from '@angular/core';
 import {Estate} from '../types';
 import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
-import {Subscription} from 'rxjs';
+import {Subscription} from 'rxjs/Subscription';
 import {unsubscribeAll} from '../utils';
 
 @Component({
@@ -10,11 +10,9 @@ import {unsubscribeAll} from '../utils';
   styleUrls: ['./filter-section.component.css']
 })
 export class FilterSectionComponent implements OnInit, OnChanges, OnDestroy {
-  @Input()
-  estateToFilter;
+  @Input() estateToFilter;
 
-  @Output()
-  onFiltersChange = new EventEmitter();
+  @Output() onFiltersChange = new EventEmitter();
 
   roomTypes = [
     'entire_home',
@@ -71,7 +69,7 @@ export class FilterSectionComponent implements OnInit, OnChanges, OnDestroy {
    */
   filterEstatesByRoomType(estates: Estate[], roomTypes: String[]) {
     // TODO: Get only selected roomTypes
-    const roomTypesSelected=null;
+    const roomTypesSelected = null;
 
     if (roomTypesSelected.length === 0) {
       return this.estateToFilter;

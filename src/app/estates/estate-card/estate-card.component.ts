@@ -7,8 +7,7 @@ import {Estate} from '../../types';
   styleUrls: ['./estate-card.component.css']
 })
 export class EstateCardComponent implements OnInit {
-  @Input()
-  estate: Estate;
+  @Input() estate: Estate;
 
   constructor() {
   }

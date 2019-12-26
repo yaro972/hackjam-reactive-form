@@ -4,11 +4,20 @@ import {API_URL} from '../types';
 import 'rxjs/add/operator/map';
 import {Observable} from 'rxjs/Observable';
 
+
 @Injectable()
 export class AuthenticationService {
-  private uri = 'login';
   static AUTH_TOKEN_KEY = 'hb-token';
+  private uri = 'login';
   private authToken;
+
+  static getAuthTokenFromLocalStorage() {
+    return localStorage.getItem(AuthenticationService.AUTH_TOKEN_KEY);
+  }
+
+  static removeAuthTokenFromLocalStorage() {
+    localStorage.removeItem(AuthenticationService.AUTH_TOKEN_KEY);
+  }
 
   constructor(private http: Http, @Inject(API_URL) private baseApiUrl) {
     this.authToken = AuthenticationService.getAuthTokenFromLocalStorage();
@@ -42,11 +51,5 @@ export class AuthenticationService {
     return this.authToken;
   }
 
-  static getAuthTokenFromLocalStorage() {
-    return localStorage.getItem(AuthenticationService.AUTH_TOKEN_KEY);
-  }
 
-  static removeAuthTokenFromLocalStorage() {
-    localStorage.removeItem(AuthenticationService.AUTH_TOKEN_KEY);
-  }
 }

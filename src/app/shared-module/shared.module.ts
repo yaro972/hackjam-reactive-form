@@ -7,13 +7,15 @@ import {ReplaceAllUnderscoreBySpacePipe} from './pipes/replace-all-underscore-by
 import {AuthGuard} from './guards/auth.guard';
 import {EmailValidatorDirective} from './validators/email-validator.directive';
 import {CheckboxWithValueBindedControlValueAccessorDirective} from './checkbox-with-value-binded-control-value-accessor';
-import { NgIfDirective } from './ng-if.directive';
+import {NgIfDirective} from './ng-if.directive';
+import {RouterModule} from '@angular/router';
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    RouterModule
   ],
   exports: [
     NavBarComponent,

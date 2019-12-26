@@ -3,7 +3,7 @@ import {Router} from '@angular/router';
 import {ConnectionBackend, Headers, Http, Request, RequestOptions, RequestOptionsArgs, Response} from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {Observable} from 'rxjs';
+import {Observable} from 'rxjs/Observable';
 import {AuthenticationService} from './authentication.service';
 
 

@@ -4,8 +4,11 @@ import {SharedModule} from '../shared-module/shared.module';
 
 @NgModule({
   imports: [
+    SharedModule
   ],
-  declarations: []
+  declarations: [
+    LoginComponent
+  ]
 })
 export class AuthenticationModule {
 }

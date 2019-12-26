@@ -24,7 +24,7 @@
 
         <div class="field" [formArrayName]="roomTypes">
           <label class="label">Room types</label>
-          <p class="control" ngFor="const type in roomTypes;">
+          <p *ngFor="let type of roomTypes;" class="control">
             <label class="checkbox">
               <input type="checkbox"
                      hvaCheckboxWithValueBinded
@@ -38,11 +38,11 @@
         </div>
         <div class="field is-grouped">
           <p class="control">
-            <button class="button is-primary" click="filterEstate(estateToFilter, getRawValueOfForm())">Refresh
+            <button (click)="filterEstate(estateToFilter, getRawValueOfForm())" class="button is-primary">Refresh
             </button>
           </p>
           <p class="control">
-            <button class="button is-link" click="resetFilters">Reset</button>
+            <button (click)="resetFilters" class="button is-link">Reset</button>
           </p>
         </div>
         <!--Debugger helper to see all the information in your form-->

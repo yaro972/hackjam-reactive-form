@@ -6,7 +6,7 @@ exports.fileExists = function (filepath) {
   return new Promise(function (resolve, reject) {
     fs.stat(filepath, function (err, stat) {
       if (err) reject();
-      else    resolve(stat);
+      else resolve(stat);
     });
   });
 };
@@ -75,7 +75,7 @@ function generateRamdomEstates(nbrEstates) {
   });
 
   return Promise.resolve(estates);
-};
+}
 
 exports.writeDbFile = function (estates) {
   fs.writeFileSync(pathToDb, estates);

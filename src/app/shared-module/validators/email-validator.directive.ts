@@ -1,10 +1,10 @@
 import {Directive, forwardRef} from '@angular/core';
-import {AbstractControl, NG_VALIDATORS, Validator, Validators} from '@angular/forms';
+import {AbstractControl, NG_VALIDATORS, Validator} from '@angular/forms';
 
 @Directive({
   selector: '[email][formControlName],[email][formControl],[email][ngModel]',
   providers: [
-    { provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidatorDirective), multi: true }
+    {provide: NG_VALIDATORS, useExisting: forwardRef(() => EmailValidatorDirective), multi: true}
   ]
 })
 export class EmailValidatorDirective implements Validator {
@@ -13,7 +13,7 @@ export class EmailValidatorDirective implements Validator {
   }
 
   validate(c: AbstractControl): { [key: string]: any } {
-    const error = { 'invalidEmail': true };
+    const error = {'invalidEmail': true};
     if (!c.value) {
       return error;
     }

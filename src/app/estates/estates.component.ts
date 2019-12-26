@@ -9,8 +9,8 @@ import {chunk} from '../utils';
 })
 export class EstatesComponent implements OnInit {
 
-  filteredEstates = [];
-  estates = [];
+  public filteredEstates = [];
+  public estates = [];
 
   constructor(private estateApiService: EstateApiService) {
   }

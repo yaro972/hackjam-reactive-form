@@ -6,8 +6,7 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./estate-card-image.component.css']
 })
 export class EstateCardImageComponent implements OnInit {
-  @Input()
-  picture: string;
+  @Input() picture: string;
 
   constructor() {
   }

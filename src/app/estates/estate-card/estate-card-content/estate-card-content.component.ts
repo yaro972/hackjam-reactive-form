@@ -7,20 +7,15 @@ import {Location} from '../../../types';
   styleUrls: ['./estate-card-content.component.css']
 })
 export class EstateCardContentComponent implements OnInit {
-  @Input()
-  title: string;
+  @Input() title: string;
 
-  @Input()
-  userName: string;
+  @Input() userName: string;
 
-  @Input()
-  userPicture: string;
+  @Input() userPicture: string;
 
-  @Input()
-  roomType: string;
+  @Input() roomType: string;
 
-  @Input()
-  location: Location;
+  @Input() location: Location;
 
   constructor() {
   }
