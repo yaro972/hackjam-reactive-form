@@ -12,5 +12,14 @@ pipeline {
       }
     }
 
+    stage('Test') {
+      steps {
+        withNPM(npmrcConfig: 'run test') {
+          sh 'npm run test'
+        }
+
+      }
+    }
+
   }
 }
