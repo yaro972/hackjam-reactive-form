@@ -1,7 +1,7 @@
 pipeline {
   agent {
-    node {
-      label 'hackjam'
+    docker {
+      image 'node:latest'
     }
 
   }
